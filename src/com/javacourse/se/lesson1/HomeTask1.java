@@ -7,7 +7,7 @@ public class HomeTask1 {
 
     public void convertTime(){
 
-        int seconds = 994509;
+        int seconds = 4500;
         int ostSec = seconds%60;
         int minutes = seconds/60;
         System.out.println(" В 4500 секунд " + minutes + " минут " + ostSec + " секунд");
