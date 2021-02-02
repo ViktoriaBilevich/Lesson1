@@ -10,5 +10,4 @@ public class Main {
         ht.checkNumber();
         ht.isCircleCoverRectangle();
     }
-
 }
