@@ -3,7 +3,8 @@ package com.javacourse.se.lesson3;
 public class HomeTask3 {
 
 
-    // Task 1
+    // Task 1 Найти максимальный элемент в массиве заданной длинны.
+
     public void maxNumber() {
         int array[] = {20, 34, 98, 86, 79, 15};
         int max = array[0];
@@ -15,7 +16,8 @@ public class HomeTask3 {
         System.out.println(max);
     }
 
-    // Task 2.1
+    // Task 2.1 Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины.
+
     public void increaseNumber() {
         int array[] = {20, 34, 98, 86, 79, 15};
         for (int start = 0; start < array.length - 1; start++) {
@@ -51,7 +53,8 @@ public class HomeTask3 {
         System.out.println();
     }
 
-    // Task 3
+    // Task 3 Вычислить: 1+2+4+8+…+256
+
     public void Sum() {
         double sum = 0;
         for (double i = 0.5; i <= 128; i = i * 2) {
@@ -61,7 +64,8 @@ public class HomeTask3 {
     }
 
 
-    // Task 4
+    // Task 4 Составьте программу, вычисляющую A*B, не пользуясь операцией умножения.
+
     public void multNum() {
         int a = 3, b = 5, c = 0;
         for (int i = 1; i <= b; i++) {
@@ -70,7 +74,9 @@ public class HomeTask3 {
         System.out.println(c);
     }
 
-    // Task 5
+    // Task 5 Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить,
+    //сколько амеб будет через 3, 6, 9, 12,..., 24 часа
+
     public void multAmeba() {
         int a = 1;
         for (int i = 3; i <= 24; i = i + 3) {
@@ -80,17 +86,22 @@ public class HomeTask3 {
         System.out.println();
     }
 
-    // Task 6
+    // Task 6 Начав тренировки, спортсмен в первый день пробежал 10 км. Каждый
+    //день он увеличивал дневную норму на 10% нормы предыдущего дня. Какой
+    //суммарный путь пробежит спортсмен за 7 дней?
+
     public void run() {
-        double dist = 10, weekDist = dist;
+        double dist = 10, weekDist = dist, normPercent = 10;
         for (int i = 2; i <= 7; i++) {
-            dist *= 1.1;
+            dist *= (100+normPercent)/100;
             weekDist += dist;
         }
         System.out.println(weekDist);
     }
 
-    // Task 7
+    // Task 7 Определите сумму элементов одномерного массива, расположенных между
+    //минимальным и максимальным значениями.
+
     public void maxMinSum() {
         int array[] = {17, 2, 34, 45, 27, 89, 6};
         int max = array[0];
@@ -123,7 +134,8 @@ public class HomeTask3 {
         System.out.println(sum);
     }
 
-    // Task 8
+    // Task 8 Посчитать факториал числа в границах от 10 до 15 (не используя рекурсию).
+
     public void factorial() {
         int result = 1;
         for (int i = 10; i <= 15; i++) {
@@ -132,7 +144,7 @@ public class HomeTask3 {
         System.out.println(result);
     }
 
-    // Task 9
+    // Task 9 Реализовать бинарный поиск в массиве.
     public void binarySearch() {
         int array[] = {20, 34, 98, 15, 3, 77, 9};
         int searchNumb = 15;
