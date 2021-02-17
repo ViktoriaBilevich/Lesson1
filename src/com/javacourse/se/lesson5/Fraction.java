@@ -11,7 +11,11 @@ public class Fraction {
 
     public Fraction(int m, int n) {
         this.m = m;
-        this.n = n;
+        if(n!=0){
+        this.n = n;}
+        else{
+            System.out.println("Введите число не равное 0");
+        }
     }
 
     @Override

@@ -17,7 +17,19 @@ public class FractionService {
             resultM = first.m + second.m;
             resultN = first.n;
         }
-        return new Fraction(resultM, resultN);
+        Fraction result = new Fraction(resultM, resultN);
+        reductionFraction(result);
+        return result;
+    }
+
+    public static void reductionFraction(Fraction first) {
+        int limit = Math.min(first.m, first.n);
+        for (long i = 2; i <= limit; i++) {
+            if (first.m % i == 0 && first.n % i == 0) {
+                first.m /= i;
+                first.n /= i;
+            }
+        }
     }
 
     public Fraction minus(Fraction first, Fraction second) {
@@ -30,7 +42,9 @@ public class FractionService {
             resultM = first.m - second.m;
             resultN = first.n;
         }
-        return new Fraction(resultM, resultN);
+        Fraction result = new Fraction(resultM, resultN);
+        reductionFraction(result);
+        return result;
     }
 
 
@@ -38,14 +52,18 @@ public class FractionService {
         int resultM = first.m * second.m;
         int resultN = first.n * second.n;
 
-        return new Fraction(resultM, resultN);
+        Fraction result = new Fraction(resultM, resultN);
+        reductionFraction(result);
+        return result;
     }
 
     public Fraction divide(Fraction first, Fraction second) {
         int resultM = first.m * second.n;
         int resultN = first.n * second.m;
 
-        return new Fraction(resultM, resultN);
+        Fraction result = new Fraction(resultM, resultN);
+        reductionFraction(result);
+        return result;
     }
 
     public void update(Fraction[] fractionArray) {

@@ -15,40 +15,59 @@ public class Demo {
         TimePeriod tp1 = new TimePeriod(3, 56, 43);
         int result = tp.compareTimePeriods(tp1);
         System.out.println(result);
-        tp.Print();
-        tp1.Print();
+        tp.print();
+        tp1.print();
 //Task 2
         Customer[] customer = new Customer[5];
-        Customer ted = new Customer(768, "Mosby", "Ted", "Fedorovich", 67, 99);
-        Customer marshal = new Customer(1768, "Ericson", "Marshal", "Marshalovich", 657, 989);
-        Customer burny = new Customer(76788, "Stinson", "Burny", "Filipovich", 6977, 99999);
-        Customer robin = new Customer(7658, "Cherbatsky", "Robin", "Ivanovna", 6799, 99654);
-        Customer lily = new Customer(79055, "Aldrin", "Lily", "Petrovna", 78797465, 7908766);
+        Customer ted = new Customer(768, "Mosby", "Ted", "Fedorovich", 67, "99");
+        Customer marshal = new Customer(1768, "Ericson", "Marshal", "Marshalovich", 657, "989");
+        Customer burny = new Customer(76788, "Stinson", "Burny", "Filipovich", 6977, "99999");
+        Customer robin = new Customer(7658, "Cherbatsky", "Robin", "Ivanovna", 6799, "99654");
+        Customer lily = new Customer(79055, "Aldrin", "Lily", "Petrovna", 78797465, "7908766");
         customer[0] = ted;
         customer[1] = marshal;
         customer[2] = burny;
         customer[3] = robin;
         customer[4] = lily;
 
-        CustomerService.displayArrayCustomerSortedByAscending(customer);
-        CustomerService.displayArrayCustomerSortedByCreditCardNumber(customer, 600, 7000);
+        CustomerService.sortedCustomersByAscending(customer);
+        for (int i = 0; i < customer.length; i++) {
+            System.out.println(customer[i].toString());
+        }
+        Customer[] filteredCustomers = CustomerService.findCustomersByCreditCardNumber(customer, 600, 7000);
+        System.out.println();
+        for (int i = 0; i < filteredCustomers.length; i++) {
+            System.out.println(filteredCustomers[i].toString());
+        }
+        System.out.println();
 
 // Task 3
         Book[] book = new Book[]{
-                new Book(90849494, "Незнайка на луне", "Носов", "Асвета", 2005, 43, 5),
-                new Book(8552565, "Незнайка в солнечном городе", "Носов", "Поппури", 2008, 39, 7.3),
-                new Book(34454363, "Страж", "Пехов", "Альфа-книга", 2019, 245, 21.70),
-                new Book(44353452, "Хроники Сиалы", "Пехов", "Альфа-книга", 2020, 1151, 45.7),
-                new Book(676667, "Тень ингениума", "Пехов", "Детектив", 2020, 307, 20.52)};
+                new Book(90849494, "Незнайка на луне", new String[]{"Носов"}, "Асвета", 2005, 43, 5),
+                new Book(8552565, "Незнайка в солнечном городе", new String[]{"Носов"}, "Поппури", 2008, 39, 7.3),
+                new Book(34454363, "Страж", new String[]{"Пехов"}, "Альфа-книга", 2019, 245, 21.70),
+                new Book(44353452, "Хроники Сиалы", new String[]{"Пехов"}, "Альфа-книга", 2020, 1151, 45.7),
+                new Book(676667, "Тень ингениума", new String[]{"Пехов"}, "Детектив", 2020, 307, 20.52)};
 
-        BookService.displayBooksByAuthor(book, "Пехов");
-        BookService.displayBooksByPublishingHouse(book, "Альфа-книга");
-        BookService.displayBooksByYearPublication(book, 2010);
+        Book[] booksByAutor = BookService.findBooksByAuthor(book, "Пехов");
+        for (int i = 0; i < booksByAutor.length; i++) {
+            System.out.println(booksByAutor[i].toString());
+        }
+
+        Book[] booksByPublishingHouse = BookService.findBooksByPublishingHouse(book, "Альфа-книга");
+        for (int i = 0; i < booksByPublishingHouse.length; i++) {
+            System.out.println(booksByPublishingHouse[i].toString());
+        }
+        Book[] booksByYearPublication = BookService.findBooksByYearPublication(book, 2010);
+        for (int i = 0; i < booksByYearPublication.length; i++) {
+            System.out.println(booksByYearPublication[i].toString());
+        }
 
         //Task 4
         Fraction fraction = new Fraction(5, 6);
         Fraction fraction2 = new Fraction(3, 8);
         Fraction fs = FractionService.sum(fraction, fraction2);
+
         System.out.println("сумма: " + fs.m + "/" + fs.n);
 
         FractionService fs1 = new FractionService();

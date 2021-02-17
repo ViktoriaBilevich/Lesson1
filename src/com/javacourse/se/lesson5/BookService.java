@@ -7,28 +7,72 @@ package com.javacourse.se.lesson5;
 //        c) список книг, выпущенных после заданного года
 public class BookService {
 
-    public static void displayBooksByAuthor(Book[] books, String author) {
+    public static Book[] findBooksByAuthor(Book[] books, String author) {
+
+        int counter = 0;
         for (int i = 0; i < books.length; i++) {
-            if (books[i].author == author) {
-                System.out.println(books[i].author + " " + books[i].name);
+            for (int j = 0; j < books[i].authors.length; j++) {
+                if (books[i].authors[j] == author) {
+                counter++;
+                }
             }
         }
+        if(counter == 0){
+            return null;
+        }
+        Book[] result = new Book[counter];
+        int index = 0;
+        for (int i = 0; i < books.length; i++) {
+            for (int j = 0; j < books[i].authors.length; j++) {
+                if (books[i].authors[j] == author) {
+                    result[index]=books[i];
+                    index++;
+                }
+            }
+        }
+        return result;
     }
 
-    public static void displayBooksByPublishingHouse(Book[] books, String publishingHouse) {
+    public static Book[] findBooksByPublishingHouse(Book[] books, String publishingHouse) {
+        int counter = 0;
         for (int i = 0; i < books.length; i++) {
             if (books[i].publishingHouse == publishingHouse) {
-                System.out.println(books[i].publishingHouse + " " + books[i].author + " " + books[i].name);
+                counter++;
             }
         }
+        if(counter == 0){
+            return null;
+        }
+        Book[] result = new Book[counter];
+        int index=0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].publishingHouse == publishingHouse) {
+                result[index] = books[i];
+                index++;
+            }
+        }
+        return result;
     }
 
-    public static void displayBooksByYearPublication(Book[] books, int yearPublication) {
+    public static Book[] findBooksByYearPublication(Book[] books, int yearPublication) {
+
+        int counter = 0;
         for (int i = 0; i < books.length; i++) {
             if (books[i].yearPublication > yearPublication) {
-                System.out.println(books[i].yearPublication + " " + books[i].author + " " + books[i].name);
+                counter++;
             }
         }
+        if(counter == 0){
+            return null;
+        }
+        Book[] result = new Book[counter];
+        int index = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].yearPublication > yearPublication) {
+                result[index] = books[i];
+                index++;
+            }
+        }
+        return result;
     }
-
 }

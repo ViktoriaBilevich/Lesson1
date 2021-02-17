@@ -6,7 +6,7 @@ package com.javacourse.se.lesson5;
 //        b) список покупателей, у которых номер кредитной карточки находится в заданном интервале.
 
 public class CustomerService {
-    public static void displayArrayCustomerSortedByAscending(Customer[] customers) {
+    public static void sortedCustomersByAscending(Customer[] customers) {
 
         for (int start = 0; start < customers.length - 1; start++) {
             for (int index = 0; index < customers.length - 1 - start; index++) {
@@ -17,18 +17,26 @@ public class CustomerService {
                 }
             }
         }
-        for (int i = 0; i < customers.length; i++) {
-            System.out.print(customers[i].lastName + " " + customers[i].firstName + ", ");
-        }
-        System.out.println();
     }
 
-    public static void displayArrayCustomerSortedByCreditCardNumber(Customer[] customers, int minCardNumber, int maxCardNumber) {
-
+    public static Customer[] findCustomersByCreditCardNumber(Customer[] customers, int minCardNumber, int maxCardNumber) {
+        int counter = 0;
         for (int i = 0; i < customers.length; i++) {
             if (customers[i].creditCardNumber > minCardNumber && customers[i].creditCardNumber < maxCardNumber) {
-                System.out.println(customers[i].creditCardNumber + " " + customers[i].lastName + " " + customers[i].firstName + ", ");
+                counter++;
             }
         }
+        if (counter == 0) {
+            return null;
+        }
+        Customer[] result = new Customer[counter];
+        int index=0;
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i].creditCardNumber > minCardNumber && customers[i].creditCardNumber < maxCardNumber) {
+                result[index]=customers[i];
+                index++;
+            }
+        }
+        return result;
     }
 }

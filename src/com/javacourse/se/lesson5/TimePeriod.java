@@ -34,7 +34,7 @@ public class TimePeriod {
         return result;
     }
 
-    public void Print() {
+    public void print() {
         System.out.println(this.hours + " ч. " + this.minutes + " мин. " + this.seconds + " с. ");
     }
 }
