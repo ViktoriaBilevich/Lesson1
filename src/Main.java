@@ -10,11 +10,11 @@ public class Main {
         ht.reverseNumber();
         ht.compareNumber();
       
-        HomeTask1 ht = new HomeTask1();
-        ht.convertTime();
-        ht.reverseNumber();
-        ht.compareNumber();
-        ht.checkNumber();
-        ht.isCircleCoverRectangle();
+//        HomeTask1 ht = new HomeTask1();
+//        ht.convertTime();
+//        ht.reverseNumber();
+//        ht.compareNumber();
+//        ht.checkNumber();
+//        ht.isCircleCoverRectangle();
     }
 }
