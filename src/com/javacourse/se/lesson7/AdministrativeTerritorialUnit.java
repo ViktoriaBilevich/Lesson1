@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class AdministrativeTerritorialUnit {
-    protected String name;
-    protected String capital;
-    protected double square;
-    protected AdministrativeTerritorialUnit[] parts;
+    public String name;
+    public String capital;
+    public double square;
+    public AdministrativeTerritorialUnit[] parts;
 
     public AdministrativeTerritorialUnit(String name, double square) {
         this.name = name;
